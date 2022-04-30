@@ -84,18 +84,29 @@ export default function Home({ data }) {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Rick and Morty</h1>
-        <div style={{ display: "flex", margin: "2rem 0" }}>
-          <button className={styles.button}>
-            <Link href="/">
-              <a>Log In</a>
-            </Link>
-          </button>
-          <button className={styles.button}>
-            <Link href="/">
-              <a>Register</a>
-            </Link>
-          </button>
-        </div>
+
+        <form className={styles.search} onSubmit={handleOnSubmitSearch}>
+          <input className={styles.input} name="query" type="search" />
+          <button className={styles.button}>Search</button>
+        </form>
+
+        <ul className={styles.grid}>
+          {results.map((result) => {
+            const { id, name, image } = result
+
+            return (
+              <Link href={`/character/${id}`} key={id} className={styles.card}>
+                <a>
+                  <img src={image} alt={`${name} Thumbnail`} />
+                  <h3>{name}</h3>
+                </a>
+              </Link>
+            )
+          })}
+        </ul>
+        <button className={styles.button} onClick={handleLoadMore}>
+          Load More
+        </button>
       </main>
     </div>
   )
