@@ -10,7 +10,7 @@ const Navbar = () => {
     <div
       style={{
         position: "absolute",
-        width: "100vw",
+        width: "98vw",
       }}
     >
       <div
