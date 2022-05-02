@@ -26,6 +26,8 @@ Run linter
 yarn lint
 ```
 
+#### Deployed at: [Rick and Morty App](https://rick-and-morty-app-polescalera.vercel.app/)
+
 ### Challenge
 
 Rick and Morty app.
@@ -54,5 +56,3 @@ Rick and Morty app.
 - register
 - backend pagination
 - preload images and loader
-
-#### Deployed at: [Rick and Morty App](https://rick-and-morty-app-polescalera.vercel.app/)
