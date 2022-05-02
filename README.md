@@ -28,6 +28,10 @@ yarn lint
 
 #### Deployed at: [Rick and Morty App](https://rick-and-morty-app-polescalera.vercel.app/)
 
+Available user test:
+email: test@gmail.com,
+password: test1234
+
 ### Challenge
 
 Rick and Morty app.
