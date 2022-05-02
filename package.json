@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "firebase": "^9.7.0",
@@ -15,6 +16,7 @@
     "react-dom": "18.1.0"
   },
   "devDependencies": {
+    "cypress": "^9.6.0",
     "eslint": "^8.14.0",
     "eslint-config-next": "12.1.5",
     "eslint-config-prettier": "^8.5.0",

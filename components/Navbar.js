@@ -9,38 +9,45 @@ const Navbar = () => {
   return (
     <div
       style={{
-        display: "flex",
-        justifyContent: "space-between",
-        padding: "1rem",
-        alignItems: "center",
+        position: "absolute",
+        width: "100vw",
       }}
     >
-      <Link href="/">
-        <p>Rick and Morty App</p>
-      </Link>
-      <div>
-        {user ? (
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <Link href={"/favs"}>My favs</Link>
-            <div
-              onClick={() => {
-                logout()
-                router.push("/login")
-              }}
-            >
-              Logout
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "1rem",
+          alignItems: "center",
+        }}
+      >
+        <Link href="/">
+          <p>Rick and Morty App</p>
+        </Link>
+        <div>
+          {user ? (
+            <div style={{ display: "flex", gap: "1rem" }}>
+              <Link href={"/favs"}>My favs</Link>
+              <div
+                onClick={() => {
+                  logout()
+                  router.push("/")
+                }}
+              >
+                Log Out
+              </div>
             </div>
-          </div>
-        ) : (
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <Link href="/signup">
-              <div>Signup</div>
-            </Link>
-            <Link href="/login">
-              <div>Login</div>
-            </Link>
-          </div>
-        )}
+          ) : (
+            <div style={{ display: "flex", gap: "1rem" }}>
+              <Link href="/signup">
+                <div>Sign Up</div>
+              </Link>
+              <Link href="/login">
+                <div>Log In</div>
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )

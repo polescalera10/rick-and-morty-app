@@ -1,78 +1,17 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import Head from "next/head"
+import { useRouter } from "next/router"
 import Link from "next/link"
+import { useAuth } from "../context/AuthContext"
 import styles from "../styles/Home.module.css"
 
-const api = "https://rickandmortyapi.com/api/character/"
-
-export async function getServerSideProps() {
-  const res = await fetch(api)
-  const data = await res.json()
-  return {
-    props: {
-      data,
-    },
-  }
-}
-
-export default function Home({ data }) {
-  const { info, results: defaultResults = [] } = data
-  const [results, updateResults] = useState(defaultResults)
-  const [page, updatePage] = useState({
-    ...info,
-    current: api,
-  })
-
-  const { current } = page
+export default function Home() {
+  const { user } = useAuth()
+  const router = useRouter()
 
   useEffect(() => {
-    if (current === api) return
-
-    async function request() {
-      const res = await fetch(current)
-      const nextData = await res.json()
-
-      updatePage({
-        current,
-        ...nextData.info,
-      })
-
-      if (!nextData.info?.prev) {
-        updateResults(nextData.results)
-        return
-      }
-
-      updateResults((prev) => {
-        return [...prev, ...nextData.results]
-      })
-    }
-
-    request()
-  }, [current])
-
-  function handleLoadMore() {
-    updatePage((prev) => {
-      return {
-        ...prev,
-        current: page?.next,
-      }
-    })
-  }
-
-  function handleOnSubmitSearch(e) {
-    e.preventDefault()
-
-    const { currentTarget = {} } = e
-    const fields = Array.from(currentTarget?.elements)
-    const fieldQuery = fields.find((field) => field.name === "query")
-
-    const value = fieldQuery.value || ""
-    const endpoint = `${api}/character/?name=${value}`
-
-    updatePage({
-      current: endpoint,
-    })
-  }
+    user && router.push("/list")
+  }, [])
 
   return (
     <div className={styles.container}>
@@ -84,15 +23,15 @@ export default function Home({ data }) {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Rick and Morty</h1>
-        <div style={{ display: "flex", margin: "2rem 0" }}>
+        <div style={{ display: "flex", margin: "2rem 0", gap: "1rem" }}>
           <button className={styles.button}>
-            <Link href="/">
-              <a>Log In</a>
+            <Link href="/signup">
+              <a>Sign Up</a>
             </Link>
           </button>
           <button className={styles.button}>
-            <Link href="/">
-              <a>Register</a>
+            <Link href="/login">
+              <a>Log In</a>
             </Link>
           </button>
         </div>

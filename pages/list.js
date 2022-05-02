@@ -15,7 +15,7 @@ export async function getServerSideProps() {
   }
 }
 
-export default function Home({ data }) {
+const List = ({ data }) => {
   const { info, results: defaultResults = [] } = data
   const [results, updateResults] = useState(defaultResults)
   const [page, updatePage] = useState({
@@ -111,3 +111,5 @@ export default function Home({ data }) {
     </div>
   )
 }
+
+export default List
