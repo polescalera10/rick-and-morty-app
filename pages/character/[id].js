@@ -44,12 +44,6 @@ const Character = ({ data }) => {
       </Head>
 
       <main className={styles.main}>
-        <button className={styles.button}>
-          <Link href="/list">
-            <a>Back to All Characters</a>
-          </Link>
-        </button>
-
         <h1>{name}</h1>
         <div>
           <div>
@@ -88,6 +82,11 @@ const Character = ({ data }) => {
               </li>
             </ul>
           </div>
+          <button className={styles.button}>
+            <Link href="/list">
+              <a>Back to All Characters</a>
+            </Link>
+          </button>
         </div>
       </main>
     </div>

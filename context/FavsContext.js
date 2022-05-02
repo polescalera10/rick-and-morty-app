@@ -31,7 +31,7 @@ export const FavsContextProvider = ({ children }) => {
     },
     [setFavorites]
   )
-  console.log(favorites)
+
   return (
     <FavsContext.Provider value={{ favorites, add, remove }}>
       {children}
