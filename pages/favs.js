@@ -2,6 +2,7 @@ import Head from "next/head"
 import Link from "next/link"
 import styles from "../styles/Home.module.css"
 import { useFavs } from "../context/FavsContext"
+import BackButton from "../components/BackButton"
 
 export default function Favs() {
   const { favorites: results } = useFavs()
@@ -15,11 +16,7 @@ export default function Favs() {
       </Head>
 
       <main className={styles.main}>
-        <button className={styles.button}>
-          <Link href="/list">
-            <a>Back to All Characters</a>
-          </Link>
-        </button>
+        <BackButton />
         <ul className={styles.grid}>
           {!results.length && "No favs"}
           {results &&

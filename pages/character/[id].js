@@ -1,9 +1,9 @@
 import { useState } from "react"
 import Head from "next/head"
-import Link from "next/link"
 import styles from "../../styles/Home.module.css"
 import { useAuth } from "../../context/AuthContext"
 import { useFavs } from "../../context/FavsContext"
+import BackButton from "../../components/BackButton"
 
 const api = "https://rickandmortyapi.com/api/character/"
 
@@ -82,11 +82,7 @@ const Character = ({ data }) => {
               </li>
             </ul>
           </div>
-          <button className={styles.button}>
-            <Link href="/list">
-              <a>Back to All Characters</a>
-            </Link>
-          </button>
+          <BackButton />
         </div>
       </main>
     </div>

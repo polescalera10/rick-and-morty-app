@@ -66,12 +66,8 @@ const List = ({ data }) => {
     const fields = Array.from(currentTarget?.elements)
     const fieldQuery = fields.find((field) => field.name === "query")
 
-    console.log(fieldQuery.value)
-
     const value = fieldQuery.value || ""
     const endpoint = `${api}?name=${value}`
-
-    console.log(endpoint)
 
     updatePage({
       current: endpoint,
